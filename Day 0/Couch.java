@@ -30,9 +30,16 @@ public class Couch {
         System.out.println("There is stuff on the couch, so it is " + couchfeel + ".");
     }
 
-    public void broken() {
-        couchlegsnumber = 3;
-        System.out.println("The couch has " + couchlegsnumber + " legs.");
+    public void broken(int howManyCouchLegsToBreak) {
+        if (howManyCouchLegsToBreak > couchlegsnumber) {
+            System.out.println("There are only " + couchlegsnumber + " legs on the couch that you can break.");
+            couchlegsnumber = 0;
+        } else {
+            couchlegsnumber = couchlegsnumber - howManyCouchLegsToBreak;
+            System.out.println("The couch now only has " + couchlegsnumber + " legs.");
+        }
+        //couchlegsnumber = 3;
+        //System.out.println("The couch has " + couchlegsnumber + " legs.");
         // System.out.println(couchlegsnumber);
         // System.out.println(" legs.");
     }
