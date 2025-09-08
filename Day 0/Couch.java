@@ -46,10 +46,42 @@ public class Couch {
 
     public void fix() {
         System.out.println("The couch is now fixed.");
+        couchlegsnumber = 4;
     }
    
     // sit on couch
     // put stuff on couch
     // couch can be broken
     // couch can be fixed
+
+    public Couch(String newColor) {
+        color = newColor;
+
+    }
+
+    public String toString() {
+        return "The word couch starts with a " + firstletter 
+        + ", and this couch is " + color + ". Also, this couch is " 
+        + couchlengthfeet + "feet in length and has " + couchlegsnumber 
+        + " legs. It is " + comfycouch + " that the couch is very " + couchfeel + ".";
+    }
+
+
+    public boolean equals(Couch otherCouch) {
+        if (
+            this.couchlegsnumber == otherCouch.couchlegsnumber &&
+            this.couchlengthfeet == otherCouch.couchlengthfeet &&
+            this.firstletter == otherCouch.firstletter &&
+            this.comfycouch == otherCouch.comfycouch &&
+            this.color.equals(otherCouch.color) &&
+            // this.color == otherCouch.color &&
+            this.couchfeel == otherCouch.couchfeel
+            ) {
+                return true;
+        }
+        return false;
+    
+    }
+
+
 }
