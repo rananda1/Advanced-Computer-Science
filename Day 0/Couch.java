@@ -12,6 +12,48 @@ public class Couch {
     private boolean comfycouch; // = true;
     private char firstletter; // = 'C';
 
+    public int getCouchlegsnumber() {
+        return this.couchlegsnumber;
+    }
+
+    public void setCouchlegsnumber(int newcCouchLegsNumber) {
+        this.couchlegsnumber = newcCouchLegsNumber;
+    }
+
+    public String getColor() {
+        return this.color;
+    }
+
+    public void setColor(String newColor) {
+        this.color = newColor;
+    }
+
+    public double getCouchlengthfeet () {
+        return this.couchlengthfeet;
+    }
+
+    public void setCouchlengthfeet(double newCouchlengthfeet) {
+        this.couchlengthfeet = newCouchlengthfeet;
+    }
+
+    public String getCouchfeel () {
+        return this.couchfeel;
+    }
+
+    public void setCouchfeel(String newCouchfeel) {
+        this.couchfeel = newCouchfeel;
+    }
+
+    public boolean getComfycouch () {
+        return this.comfycouch;
+    }
+
+    
+
+    public char getFirstletter () {
+        return this.firstletter;
+    }
+
     public Couch() {
         couchlegsnumber = 4;
         color = "light gray";
@@ -62,7 +104,7 @@ public class Couch {
     public String toString() {
         return "The word couch starts with a " + firstletter 
         + ", and this couch is " + color + ". Also, this couch is " 
-        + couchlengthfeet + "feet in length and has " + couchlegsnumber 
+        + couchlengthfeet + " feet in length and has " + couchlegsnumber 
         + " legs. It is " + comfycouch + " that the couch is very " + couchfeel + ".";
     }
 

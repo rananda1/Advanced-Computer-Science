@@ -1,6 +1,9 @@
 public class Rectangle {
     private int length;
     private int width;
+    private int area;
+    private int perimeter;
+    private double diagonal;
 
     public Rectangle() {
         // initialize the private
@@ -36,25 +39,40 @@ public class Rectangle {
         width = newWidth;
     }
 
-    public int calculateArea() {
-        int area = length * width;
-        return area;
+    public int getArea() {
+        area = length * width;
+        return this.area;
     }
 
-    public int calculatePerimieter() {
-        int perimeter = length + length + width + width;
-        return perimeter;
+    public int getPerimeter() {
+        perimeter = length + length + width + width;
+        return this.perimeter;
     }
 
-    public double calculateDiagonal() {
-        double diagonal = Math.sqrt(length^2 + width^2);
-        return diagonal;
+    public double getDiagonal() {
+        diagonal = Math.sqrt(length ^ 2 + width ^ 2);
+        return this.diagonal;
     }
 
+    // public int calculateArea() {
+    //     int area = length * width;
+    //     return area;
+    // }
+
+    // public int calculatePerimeter() {
+    //     int perimeter = length + length + width + width;
+    //     return perimeter;
+    // }
+
+    // public double calculateDiagonal() {
+    //     double diagonal = Math.sqrt(length ^ 2 + width ^ 2);
+    //     return diagonal;
+    // }
 
 
 
- }
+
+}
     
 
 
