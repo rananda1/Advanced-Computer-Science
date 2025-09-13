@@ -50,9 +50,24 @@ public class Rectangle {
     }
 
     public double getDiagonal() {
-        diagonal = Math.sqrt(length ^ 2 + width ^ 2);
+        diagonal = Math.sqrt((length * length) + (width * width));
         return this.diagonal;
     }
+
+    public boolean equals(Rectangle otherRectangle) {
+        if (
+            this.width == otherRectangle.width 
+                &&
+                this.length == otherRectangle.length
+            ) {
+            return true;
+        } 
+        return false;
+        
+    }
+
+
+
 
     // public int calculateArea() {
     //     int area = length * width;
