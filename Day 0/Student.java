@@ -4,16 +4,23 @@ public class Student {
     private String id;
     //private String generateId();
 
-    public Student(String newName, int newGrade) {
+    public Student(int newGrade, String newName) {
         name = newName;
         grade = newGrade;
+        this.id = generateId();
     
     }
     
     public Student(String name) {
         this.name = name;
+        grade = 10;
         this.id = generateId();
+        
     }
+
+    //public Student(String id) {
+      //  this.id = generateId();
+    //}
 
     public int getGrade() {
         return grade;
@@ -34,7 +41,8 @@ public class Student {
     public String generateId() {
         id = " " + (int) (Math.random() * 8 + 1) + (int) (Math.random() * 8 + 1) 
         + (int) (Math.random() * 8 + 1) + "-" + (int) (Math.random() * 9 + 1) 
-        + (int) (Math.random() * 8 + 1) + (int) (Math.random() * 8 + 1) + (int) (Math.random() * 8 + 1) + " ";
+        + (int) (Math.random() * 9 + 1) + (int) (Math.random() * 9 + 1) 
+        + (int) (Math.random() * 9 + 1) + " ";
         return id;
     }
 
@@ -46,10 +54,20 @@ public class Student {
 
     public String toString() {
         return name + " is in grade " 
-        + grade + " and the students ID is " + id + ".";
+        + grade + " and the students ID is " + this.id + ".";
     }
 
-
+    public boolean equals(Student otherStudent) {
+        if (
+            this.name == otherStudent.name &&
+            this.grade == otherStudent.grade &&
+            this.id == otherStudent.id
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 
 
