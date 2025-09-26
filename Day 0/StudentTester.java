@@ -11,6 +11,7 @@ public class StudentTester {
         System.out.println(sophmore.vibeCheck(junior));
         //System.out.println(sophmore.vibeCheck(junior));
 
+        //sophmore.setId(junior.getId());
 
 
 
