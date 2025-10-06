@@ -69,7 +69,7 @@ public class Dog {
         this.ownerName = ownerName;
         this.age = age;
         this.dogId = dogId;
-        this.dogChar = generateDogChar();
+        this.dogChar = Dog.generateDogChar(this.dogId);
         this.dogTag = generateDogTag();
         this.stillInFacility = true;
     }
@@ -79,7 +79,7 @@ public class Dog {
         this.ownerName = "Rose";
         this.age = 5;
         this.dogId = 123;
-        this.dogChar = generateDogChar();
+        this.dogChar = Dog.generateDogChar(this.dogId);
         this.dogTag = generateDogTag();
         this.stillInFacility = true; 
     }
@@ -87,16 +87,20 @@ public class Dog {
     public String toString() {
         return name + " is a good dog. They are " + age 
         + " years old and belong to " + ownerName + ". It is " 
-        + stillInFacility + " that they are still in our facility." + 
+        + stillInFacility + " that they are still in our facility. " + 
         "For employee use only: DogTag is " + dogTag + ".";
     }
 
-    public char generateDogChar() {
-
+// some problem here with the letter it outputs 
+    public static char generateDogChar(int dogId) {
+        int num3 = dogId % 10;
+        int num2 = (num3 / 10) % 10;
+        int num1 = (num2 / 10) % 10;
+        return (char) ('F' + (num1 + num2 + num3) % 10);
     }
 
     public String generateDogTag() {
-
+        return new String("" + this.dogId + this.dogChar + "");
     }
 
     public boolean equals(Dog other) {
@@ -104,6 +108,15 @@ public class Dog {
             return true;
         } else {
             return false;
+        }
+    }
+
+    public static String pickup(Dog dog, String personName) {
+        if (personName.equals(dog.ownerName)) {
+            dog.stillInFacility = false;
+            return "" + dog.name + " has been picked up by their owner " + personName + ".";
+        } else {
+            return "You are not able to pick up this dog because you are not their owner.";
         }
     }
 
