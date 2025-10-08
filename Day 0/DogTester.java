@@ -13,8 +13,9 @@ public class DogTester {
         System.out.println(Jojo.getName());
         System.out.println(Jojo.getDogTag());
 
-        System.out.println(pickup(Jojo, "Rose"));
+        System.out.println(Dog.pickup(Jojo, "Rose"));
 
+        System.out.println(Dog.generateDogChar(123));
 
 
 

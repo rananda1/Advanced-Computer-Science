@@ -70,7 +70,7 @@ public class Dog {
         this.age = age;
         this.dogId = dogId;
         this.dogChar = Dog.generateDogChar(this.dogId);
-        this.dogTag = generateDogTag();
+        this.dogTag = Dog.generateDogTag(this.dogId, this.dogChar);
         this.stillInFacility = true;
     }
 
@@ -80,7 +80,7 @@ public class Dog {
         this.age = 5;
         this.dogId = 123;
         this.dogChar = Dog.generateDogChar(this.dogId);
-        this.dogTag = generateDogTag();
+        this.dogTag = Dog.generateDogTag(this.dogId, this.dogChar);
         this.stillInFacility = true; 
     }
 
@@ -99,8 +99,8 @@ public class Dog {
         return (char) ('F' + (num1 + num2 + num3) % 10);
     }
 
-    public String generateDogTag() {
-        return new String("" + this.dogId + this.dogChar + "");
+    public static String generateDogTag(int dogId, char dogChar) {
+        return new String("" + dogId + dogChar + "");
     }
 
     public boolean equals(Dog other) {
@@ -119,6 +119,13 @@ public class Dog {
             return "You are not able to pick up this dog because you are not their owner.";
         }
     }
+
+    public static void checkIn(Dog dog, String personName) {
+        dog.stillInFacility = true;
+        dog.name = personName;
+    }
+
+
 
 
 
