@@ -9,7 +9,7 @@ public class Dog {
     private boolean stillInFacility;
     
     public int getAge() {
-         return age;
+        return age;
     }
     
     public void setAge(int age) {
@@ -29,7 +29,7 @@ public class Dog {
     }
 
     public void setDogId(int dogId) {
-        this.dogId = dogId;
+        this.dogId = PawesomeUtils.validateDogId(dogId);
     }
 
     public String getDogTag() {
@@ -68,9 +68,9 @@ public class Dog {
         this.name = name;
         this.ownerName = ownerName;
         this.age = age;
-        this.dogId = dogId;
-        this.dogChar = Dog.generateDogChar(this.dogId);
-        this.dogTag = Dog.generateDogTag(this.dogId, this.dogChar);
+        this.dogId = PawesomeUtils.validateDogId(dogId);
+        this.dogChar = PawesomeUtils.generateDogChar(this.dogId);
+        this.dogTag = PawesomeUtils.generateDogTag(this.dogId, this.dogChar);
         this.stillInFacility = true;
     }
 
@@ -79,28 +79,16 @@ public class Dog {
         this.ownerName = "Rose";
         this.age = 5;
         this.dogId = 123;
-        this.dogChar = Dog.generateDogChar(this.dogId);
-        this.dogTag = Dog.generateDogTag(this.dogId, this.dogChar);
+        this.dogChar = PawesomeUtils.generateDogChar(this.dogId);
+        this.dogTag = PawesomeUtils.generateDogTag(this.dogId, this.dogChar);
         this.stillInFacility = true; 
     }
 
     public String toString() {
         return name + " is a good dog. They are " + age 
-        + " years old and belong to " + ownerName + ". It is " 
-        + stillInFacility + " that they are still in our facility. " + 
-        "For employee use only: DogTag is " + dogTag + ".";
-    }
-
-// some problem here with the letter it outputs 
-    public static char generateDogChar(int dogId) {
-        int num3 = dogId % 10;
-        int num2 = (num3 / 10) % 10;
-        int num1 = (num2 / 10) % 10;
-        return (char) ('F' + (num1 + num2 + num3) % 10);
-    }
-
-    public static String generateDogTag(int dogId, char dogChar) {
-        return new String("" + dogId + dogChar + "");
+            + " years old and belong to " + ownerName + ". It is " 
+            + stillInFacility + " that they are still in our facility. "
+            + "For employee use only: DogTag is " + dogTag + ".";
     }
 
     public boolean equals(Dog other) {
@@ -111,19 +99,7 @@ public class Dog {
         }
     }
 
-    public static String pickup(Dog dog, String personName) {
-        if (personName.equals(dog.ownerName)) {
-            dog.stillInFacility = false;
-            return "" + dog.name + " has been picked up by their owner " + personName + ".";
-        } else {
-            return "You are not able to pick up this dog because you are not their owner.";
-        }
-    }
 
-    public static void checkIn(Dog dog, String personName) {
-        dog.stillInFacility = true;
-        dog.name = personName;
-    }
 
 
 
