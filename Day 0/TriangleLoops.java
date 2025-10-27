@@ -76,7 +76,9 @@ public class TriangleLoops {
         String numTriangle = "";
         String finalNumber = "";
         for (int i = 0; i < numberOfRows; i++) {
-            finalNumber = finalNumber + 1 + i + " ";
+            
+            //numTriangle = "" + (i + 1) + 
+            finalNumber = (i + 1) + " ";
             numTriangle = "" + numTriangle + finalNumber;
             //finalLetter = "" + finalLetter + letter;
             //numTriangle = numTriangle + finalNumber;
@@ -106,7 +108,13 @@ public class TriangleLoops {
             firstHalf = "" + 'A' +
 
         }
-        (char) ('A' + i)
+        (char) ('A' + (j - 1)) //this is for the last half of triangle 
+
+
+
+        for (int j = i; j > 0; j--) {
+            s += (char) ('A' + (j - 1));
+        }
     }
 
 
