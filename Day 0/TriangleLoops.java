@@ -107,18 +107,18 @@ public class TriangleLoops {
             String ascendingLetters = "";
             String descendingLetters = "";
             //String alphabetTriangle = "";
-            // for(int j = numberOfRows; j > i; j--) {
-		    //     spaces = spaces + "*"; // spaces
-	        // }
+            for(int j = numberOfRows; j > i; j--) {
+		        spaces = spaces + "*"; // spaces
+	        }
 	        for(int l = numberOfRows; l > numberOfRows - i; l--) {
 		        ascendingLetters = ascendingLetters + (char) ('A' + (numberOfRows - l));
                 // ascending letters
 	        }
-	        // for(int f = numberOfRows; f > i; f--) {
-		    //     descendingLetters = descendingLetters + (char) ('A' + (f - 1));
-            //     // descending letters
-	        // }
-            alphabetTriangle += "" + spaces + ascendingLetters + descendingLetters + "\n";
+	        for(int f = numberOfRows; f > numberOfRows - i + 1; f--) {
+		        descendingLetters = descendingLetters + (char) ('A' + (f - (numberOfRows - i + 2)));
+                // descending letters
+	        }
+            alphabetTriangle += "" + spaces + ascendingLetters + descendingLetters + "\n"; //+ descendingLetters + "\n";
 
         }
         return alphabetTriangle;
