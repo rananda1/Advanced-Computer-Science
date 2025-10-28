@@ -78,7 +78,7 @@ public class TriangleLoops {
         for (int i = 0; i < numberOfRows; i++) {
             
             //numTriangle = "" + (i + 1) + 
-            finalNumber = (i + 1) + " ";
+            finalNumber = (finalNumber + (i + 1)) + " ";
             numTriangle = "" + numTriangle + finalNumber;
             //finalLetter = "" + finalLetter + letter;
             //numTriangle = numTriangle + finalNumber;
@@ -97,24 +97,59 @@ public class TriangleLoops {
      */
     // to-do: implement createAlphabetTriangle
     public static String createAlphabetTriangle(int numberOfRows) {
-        String triangle = "";
-        return triangle;
-
-
-        String triangle = "";
-        String spaces = "";
-        String firstHalf = "";
-        for (int i = 0; i < numberOfRows; i++) {
-            firstHalf = "" + 'A' +
+        if (numberOfRows > 26) {
+            numberOfRows = 26;
+        }
+        
+        String alphabetTriangle = "";
+        for(int i = 0; i < numberOfRows; i++) {
+	        String spaces = "";
+            String ascendingLetters = "";
+            String descendingLetters = "";
+            //String alphabetTriangle = "";
+            // for(int j = numberOfRows; j > i; j--) {
+		    //     spaces = spaces + "*"; // spaces
+	        // }
+	        for(int l = numberOfRows; l > numberOfRows - i; l--) {
+		        ascendingLetters = ascendingLetters + (char) ('A' + (numberOfRows - l));
+                // ascending letters
+	        }
+	        // for(int f = numberOfRows; f > i; f--) {
+		    //     descendingLetters = descendingLetters + (char) ('A' + (f - 1));
+            //     // descending letters
+	        // }
+            alphabetTriangle += "" + spaces + ascendingLetters + descendingLetters + "\n";
 
         }
-        (char) ('A' + (j - 1)) //this is for the last half of triangle 
+        return alphabetTriangle;
 
 
 
-        for (int j = i; j > 0; j--) {
-            s += (char) ('A' + (j - 1));
-        }
+
+
+
+
+
+
+
+        // String triangle = "";
+        // return triangle;
+
+
+        // String triangle = "";
+        // String spaces = "";
+        // String firstHalf = "";
+        // for (int i = 0; i < numberOfRows; i++) {
+        //     firstHalf = "" + 'A' +
+
+        // }
+        // (char) ('A' + (j - 1)) //this is for the last half of triangle 
+
+
+
+        // for (int j = i; j > 0; j--) {
+        //     s += (char) ('A' + (j - 1));
+        // }
     }
 
 

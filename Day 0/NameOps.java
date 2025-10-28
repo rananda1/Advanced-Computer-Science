@@ -1,11 +1,12 @@
 public class NameOps {
     
-    // public static String printMethodCall(String method, String name) {
-    //     return method(name):  
-    // }
+    public static String printMethodCall(String method, String name) {
+        String methodCall = method + "(\"" + name + "\"): ";
+        return methodCall;  
+    }
 
     public static String whoIsAwesome(String name) {
-        return "" + name + " is awesome!" + name.charAt(0);
+        return "" + name + " is awesome!"; // + name.charAt(0);
     }
 
     public static int indexOfFirstSpace(String name) {
@@ -41,16 +42,49 @@ public class NameOps {
     }
 
     public static String findFirstName(String name) {
-        if (indexOfFirstSpace(name) = -1) {
+        if (indexOfFirstSpace(name) == -1) {
             return name;
         } else {
-
+            String firstName = name.substring(0, indexOfFirstSpace(name));
+            return firstName;
         }
     }
 
-    //public static findSecondName(String name) {
+    public static String findMiddleName(String name) {
+        if ((indexOfFirstSpace(name) == -1) || (indexOfSecondSpace(name) == -1)) {
+            //String middleName = "" + " ";
+            return "";
+        } else {
+            String middleName = name.substring((indexOfFirstSpace(name) + 1), 
+                indexOfSecondSpace(name));
+            return middleName;
+        }
+    }
 
-    //}
+    public static String findLastName(String name) {
+        if (indexOfFirstSpace(name) == -1) {
+            return "";
+        } else if (indexOfSecondSpace(name) == -1) {
+            String lastName = name.substring((indexOfFirstSpace(name) + 1), name.length());
+            return lastName;
+        } else {
+            String lastName = name.substring((indexOfSecondSpace(name) + 1), name.length());
+            return lastName;
+        }
+    }
+
+    public static String generateLastFirstMidInitial(String name) {
+        if (indexOfFirstSpace(name) == -1) {
+            return name;
+        } else if (indexOfSecondSpace(name) == -1) {
+            String nameInOrder = findLastName(name) + ", " + findFirstName(name);
+            return nameInOrder;
+        } else {
+            String nameInOrder = findLastName(name) + ", " + findFirstName(name) 
+                + " " + findMiddleName(name).charAt(0) + ".";
+            return nameInOrder;
+        }
+    }
 
 
 

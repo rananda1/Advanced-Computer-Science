@@ -11,6 +11,8 @@ public class TriangleLoopsTester {
 
         System.out.println(TriangleLoops.createNumbersTriangle(4));
 
+        System.out.println(TriangleLoops.createAlphabetTriangle(5));
+
     }
 
 
