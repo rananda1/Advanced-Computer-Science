@@ -22,13 +22,13 @@ public class TriangleLoops {
     public static String createLetterTriangleUp(int numberOfRows, char letter) {
         //int i = 0;
         //while (i < numberOfRows) {
-            //i = i + 1;
-            //for (int j = 0; j < i; j++) {
-                //String triangle = "" + letter;
-                //letter = letter + letter
-            //}
-            //String triangle = "" + i;
-            //return triangle;
+        //    //i = i + 1;
+        //    //for (int j = 0; j < i; j++) {
+        //        //String triangle = "" + letter;
+        //        //letter = letter + letter
+        //    //}
+        //    //String triangle = "" + i;
+        //    //return triangle;
         //}
 
         String triangle = "";
@@ -74,17 +74,57 @@ public class TriangleLoops {
     // to-do: implement createNumbersTriangle
     public static String createNumbersTriangle(int numberOfRows) {
         String numTriangle = "";
-        String finalNumber = "";
-        for (int i = 0; i < numberOfRows; i++) {
-            
-            //numTriangle = "" + (i + 1) + 
-            finalNumber = (finalNumber + (i + 1)) + " ";
-            numTriangle = "" + numTriangle + finalNumber;
-            //finalLetter = "" + finalLetter + letter;
-            //numTriangle = numTriangle + finalNumber;
+        for (int i = 1; i <= numberOfRows; i++) {
+            //numTriangle = i + "\n";
+            for (int j = 0; j < i; j++) {
+                numTriangle = numTriangle + i + " ";
+            }
             numTriangle = numTriangle + "\n";
         }
         return numTriangle;
+        
+        
+        
+        
+        
+        
+        // String numTriangle = "";
+        // String finalNumber = "";
+        // int number = 0;
+        // for (int i = 0; i < numberOfRows; i++) {
+            
+        //     for (int o = numberOfRows; o > i; o--) {
+        //         number = number + 1;
+        //         finalNumber = "" + finalNumber + number + " ";
+        //         numTriangle = "" + numTriangle + finalNumber;
+        //         numTriangle = numTriangle + "\n";
+        //     }
+        //     // finalNumber = "" + finalNumber + number + " ";
+        //     // numTriangle = "" + numTriangle + finalNumber;
+        //     // numTriangle = numTriangle + "\n";
+
+
+        //     return numTriangle + "\n";
+
+
+        // }
+        // //return numTriangle; 
+        // return numTriangle;
+
+
+
+
+
+
+
+        //     //numTriangle = "" + (i + 1) + 
+        //     finalNumber = (finalNumber + (i + 1)) + " ";
+        //     numTriangle = "" + numTriangle + finalNumber;
+        //     //finalLetter = "" + finalLetter + letter;
+        //     //numTriangle = numTriangle + finalNumber;
+        //     numTriangle = numTriangle + "\n";
+        // }
+        // return numTriangle;
         
     }
 
@@ -102,23 +142,24 @@ public class TriangleLoops {
         }
         
         String alphabetTriangle = "";
-        for(int i = 0; i < numberOfRows; i++) {
-	        String spaces = "";
+        for (int i = 0; i < numberOfRows; i++) {
+            String spaces = "";
             String ascendingLetters = "";
             String descendingLetters = "";
             //String alphabetTriangle = "";
-            for(int j = numberOfRows; j > i; j--) {
-		        spaces = spaces + "*"; // spaces
-	        }
-	        for(int l = numberOfRows; l > numberOfRows - i; l--) {
-		        ascendingLetters = ascendingLetters + (char) ('A' + (numberOfRows - l));
+            for (int j = numberOfRows - 1; j > i; j--) {
+                spaces = spaces + "*"; // spaces
+            }
+            for (int l = numberOfRows; l >= numberOfRows - i; l--) {
+                ascendingLetters = ascendingLetters + (char) ('A' + (numberOfRows - l));
                 // ascending letters
-	        }
-	        for(int f = numberOfRows; f > numberOfRows - i + 1; f--) {
-		        descendingLetters = descendingLetters + (char) ('A' + (f - (numberOfRows - i + 2)));
+            }
+            for (int f = numberOfRows + 1; f > numberOfRows - i + 1; f--) {
+                descendingLetters = descendingLetters + (char) ('A' + (f - (numberOfRows - i + 2)));
                 // descending letters
-	        }
-            alphabetTriangle += "" + spaces + ascendingLetters + descendingLetters + "\n"; //+ descendingLetters + "\n";
+            }
+            alphabetTriangle += "" + spaces + ascendingLetters 
+                + descendingLetters + "\n"; //+ descendingLetters + "\n";
 
         }
         return alphabetTriangle;
