@@ -27,18 +27,34 @@ public class RPSGame {
 
     public void start() {
         Scanner scan = new Scanner(System.in);
-        String choice = scan.nextLine();
         String name = scan.nextLine();
+        player.setName(name);
+        String choice = scan.nextLine();
+        player.setChoice(choice);
         int timesLeft = 3;
-        while (RPSGame.validateChoice(choice) == false) {
-            timesLeft -= 1;
+        while (!RPSGame.validateChoice(choice) && timesLeft > 0) {
+            timesLeft = timesLeft - 1;
             System.out.println("That is not a valid choice, try again.");
-            choice = scan.nextLine();
-            if (timesLeft < 0) {
-                choice = generateRandomChoice();
-                System.out.println("You are out of tries. Yyour new choice is " + choice);
-            }
+            choice = scan.next();
+            player.setChoice(choice);
+            //player.setChoice(choice);
+            // if (timesLeft <= 0) {
+            //     //choice = generateRandomChoice();
+            //     player.setChoice(generateRandomChoice());
+            //     System.out.println("You are out of tries. Your new choice is " + player.getChoice());
+            // }
         }
+        // if (timesLeft < 0) {
+        //     choice = generateRandomChoice();
+        //     System.out.println("You are out of tries. Yyour new choice is " + choice);
+        // }
+        //player.setChoice(choice);
+        if (timesLeft <= 0) {
+            //choice = generateRandomChoice();
+            player.setChoice(generateRandomChoice());
+            System.out.println("You are out of tries. Your new choice is " + player.getChoice());
+        }
+        scan.close();
 
     }
 
@@ -67,21 +83,21 @@ public class RPSGame {
     }
 
     public String toString() {
-        if (didPlayerWin() == false) {
-            return "Opponenet won!\nBetter luch next time!";
+        if (didPlayerWin() == true) {
+            return "\nOpponenet won!\nBetter luch next time!";
         } else {
-            return player.getName() + " won!\nCongratulations!";
+            return "\n" + player.getName() + " won!\nCongratulations!";
         }
+        //return player.getChoice();
     }
 
     public String displayResults() {
-        return "== GAME RESULTS ==\n" + player.getName() + " chose " 
-            + player.getChoice() + ".\nOpponenet chose " + opponent.getChoice() 
-            + ".\n" + player.toString();
+        return "== GAME RESULTS ==\n" + player.toString() + "\n" + opponent.toString() 
+            + "\n" + toString();
     }
 
     public static String generateRandomChoice() {
-        int num = (int) Math.random() * 2 + 1;
+        int num = (int) (Math.random() * 3 + 1);
         if (num == 1) {
             return "rock";
         } else if (num == 2) {
@@ -90,17 +106,20 @@ public class RPSGame {
             return "scissors";
         }
         //return //random.choice("rock", "paper", "scissors");
+        //return "" + num;
     }
 
 
 
 
 
-    public static boolean  validateChoice(String choice) {
-        while (choice != "Rock" && choice != "Paper" && choice != "Scissors") {
+    public static boolean validateChoice(String choice) {
+        //String newChoice = choice.toLowerCase();
+        if (choice.equals("rock") || choice.equals("paper") || choice.equals("scissors")) {
+            return true;
+        } else {
             return false;
-        } 
-        return true;
+        }
     }
 
 
@@ -111,3 +130,4 @@ public class RPSGame {
 
 
 }
+

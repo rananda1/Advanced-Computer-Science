@@ -7,7 +7,12 @@ public class NPC {
     }
 
     public void setChoice(String choice) {
-        this.choice = choice.toLowerCase();
+        if (!RPSGame.validateChoice(choice)) {
+            this.choice = RPSGame.generateRandomChoice();
+        } else {
+            this.choice = choice.toLowerCase();
+        }
+        //this.choice = choice.toLowerCase();
     }
 
     public NPC() {

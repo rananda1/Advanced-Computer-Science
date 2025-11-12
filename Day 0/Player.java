@@ -8,10 +8,11 @@ public class Player {
     }
 
     public void setChoice(String choice) {
-        if (RPSGame.validateChoice(choice) == false) {
+        this.choice = choice.toLowerCase();
+        if (!RPSGame.validateChoice(this.choice)) {
             this.choice = RPSGame.generateRandomChoice();
         } else {
-            this.choice = this.choice.toLowerCase();
+            this.choice = choice.toLowerCase();
         }
         // this.choice = RPSGame.validateChoice(choice);
         // this.choice = this.choice.toLowerCase();
