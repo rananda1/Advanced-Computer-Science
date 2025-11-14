@@ -10,7 +10,8 @@ public class ArrayOpsTester {
         String[] stringArr3 = { "red", "green", "blue", "yellow" };
         ArrayOps.printStringArray(stringArr3); // Output: [red, green, blue, yellow]
 
-        //System.out.println(ArrayOps.findLongestString(stringArr3)); //ArrayOps.findLongestString(stringArr3);
+        //System.out.println(ArrayOps.findLongestString(stringArr3)); 
+        //ArrayOps.findLongestString(stringArr3);
 
         // Testing if two arrays are equal
         String arrayString1 = ArrayOps.printStringArray(stringArr1);
@@ -65,6 +66,8 @@ public class ArrayOpsTester {
         ArrayOps.printIntegerArray(frequencies3);
         // Output: [1, 1, 1, 1, 3, 1, 1, 2, 1, 1, 1, 1, 1, 1, 4, 1, 1, 2, 1, 2, 2, 1, 1,
         // 1, 1, 1]
+
+        //System.out.println("Testing remove and scoot:      ");
 
         intArr1 = new int[] { 1, 2, 3, 4, 5 };
         int removedIndex1 = 2;
