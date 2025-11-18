@@ -28,7 +28,14 @@ public class Robot {
     }
 
     public void setPosition(int position) {
-        this.position = position;
+        if (position < 0) {
+            this.position = 0;
+        } else if (position > hallway.length - 1) {
+            this.position = hallway.length - 1;
+        } else {
+            this.position = position;
+        }
+        //this.position = position;
     }
 
     public boolean isFacingRight() {
@@ -36,8 +43,22 @@ public class Robot {
     }
 
     public Robot(int[] hallwayToClean, int startingPosition) {
+        //this.hallway = hallwayToClean;
+        for (int o = 0; o < hallwayToClean.length; o++) {
+            if (hallwayToClean[o] < 0) {
+                hallwayToClean[o] = 0;
+            }
+        }
+        
         this.hallway = hallwayToClean;
-        this.position = startingPosition;
+        //this.position = startingPosition;
+        if (startingPosition < 0) {
+            this.position = 0;
+        } else if (startingPosition > hallway.length - 1) {
+            this.position = hallway.length - 1;
+        } else {
+            this.position = startingPosition;
+        }
         isFacingRight = true;
         
         // to-do: implement constructor
@@ -51,7 +72,7 @@ public class Robot {
     public boolean isRobotBlockedByWall() {
         
 
-        if (position == hallway.length || position == 0) { //hallway[0]) {
+        if ((position == hallway.length - 1 && isFacingRight) || (position == 0 && !isFacingRight)) { //hallway[0]) {
             return true;
         } else {
             return false;
@@ -65,18 +86,64 @@ public class Robot {
     /*
      * Commands the robot to pick up an item, move forward or turn around
      */
+
+
+    public void moveForward() {
+        if (isFacingRight) {
+            position += 1;
+        } else {
+            position -= 1;
+        }
+    }
+
+
+
+    public void turnAround() {
+        if (isFacingRight == true) {
+            isFacingRight = false;
+        } else {
+            isFacingRight = true;
+        }
+
+
+    }
+
+    public void pickup() {
+        hallway[position] = hallway[position] - 1;
+    }
+
+
+
+
+
+
+
     public void move() {
         
-        if (hallway[position] > 1) {
-            hallway[position] = hallway[position] - 1;
-        } else if (hallway[position] == 1 && !isRobotBlockedByWall()) {
-            hallway[position] = hallway[position] - 1;
-            position = position + 1;
-        } else if (hallway[position] == 0 && isRobotBlockedByWall()) {
-            position = position + 1;
-        } else if (hallway[position] == 0 && isRobotBlockedByWall()) {
-            isFacingRight = false;
+
+
+        if (position > hallway.length - 1) {
+            position = hallway.length - 1;
+        } 
+
+        if (position < 0) {
+            position = 0;
         }
+
+
+        if (hallway[position] > 1) {
+            pickup();
+        } else if (hallway[position] == 1 && !isRobotBlockedByWall()) {
+            pickup();
+            moveForward();
+        } else if (hallway[position] == 1 && isRobotBlockedByWall()) {
+            pickup();
+            turnAround();
+        } else if (hallway[position] == 0 && !isRobotBlockedByWall()) {
+            moveForward();
+        } else if (hallway[position] == 0 && isRobotBlockedByWall()) {
+            turnAround();
+        } 
 
         
         
@@ -98,11 +165,12 @@ public class Robot {
         if (hallIsClear()) {
             System.out.println("The hallway is clear.");
         } else {
-            System.out.println("The hallway is not clear yet. ");
+            System.out.println("The hallway is not clear yet. \n");
             while (!hallIsClear()) {
                 count += 1;
                 move();
                 displayState();
+                //System.out.println("\n");
             }
     
         }
@@ -147,20 +215,20 @@ public class Robot {
             finalString = finalString + hallway[i] + " ";
         }
         String spaces = "";
-        for (int j = 0; j < position; j++) {
-            spaces = spaces + " ";
+        for (int j = 1; j <= position; j++) {
+            spaces = spaces + "  ";
         }
         //String numSpaces = position;
 
         String sign = "";
-        if (isFacingRight) {
+        if (isFacingRight == true) {
             sign = ">";
         } else {
             sign = "<";
         }
         
         if (isFacingRight) {
-            finalString = finalString + "\n" + " " + spaces + sign; //">";
+            finalString = finalString + "\n" + spaces + sign; //">";
         }
         // } else {
         //     finalString = finalString + "\n" + spaces + ">";

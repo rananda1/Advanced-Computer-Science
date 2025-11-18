@@ -3,6 +3,8 @@ public class RobotTester {
         int[] hall = {1, 1, 2, 2};
         Robot robby = new Robot(hall, 1);
 
+        System.out.println(robby.getHallway().length);
+
         int moveCount = robby.clearHall();
         System.out.println("The total number of moves to clear this hall: " + moveCount);
         System.out.println("Did the robot complete the hall with exactly 9 moves? " 
@@ -10,6 +12,7 @@ public class RobotTester {
 
 
     }
+
 
 
 
