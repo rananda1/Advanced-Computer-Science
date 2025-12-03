@@ -9,6 +9,11 @@ public class Course {
         this.enrolledStudents = enrolledStudents;
     }
 
+    public Course(String courseName, int maxEnrollment) {
+        this.courseName = courseName;
+        this.enrolledStudents = new StudentRecord[maxEnrollment];
+    }
+
     public String getCourseName() {
         return courseName;
     }
@@ -24,8 +29,6 @@ public class Course {
     public void setEnrolledStudents(StudentRecord[] enrolledStudents) {
         this.enrolledStudents = enrolledStudents;
     }
-
-
 
     // getters
     // to-do: implement getters
@@ -55,8 +58,6 @@ public class Course {
      */
     // to-do: implement calculateTestAverage
 
-
-
     public String toString() {
         String finalString = "== " + courseName + " ==";
         for (int o = 0; o < enrolledStudents.length; o++) {
@@ -65,15 +66,14 @@ public class Course {
         return finalString + "\n";
     }
 
-
     public String findBestStudent() {
         String best = ""; // + enrolledStudents[0];
-        //int bestNum = 0;
+        // int bestNum = 0;
         for (int l = 1; l < enrolledStudents.length; l++) {
             if (enrolledStudents[l] != null) {
-                if (enrolledStudents[l].getAverage(0, enrolledStudents[l].getScores().length - 1) 
-                    > enrolledStudents[l - 1].getAverage(0, 
-                    (enrolledStudents[l].getScores().length - 1))) {    
+                if (enrolledStudents[l].getAverage(0,
+                        enrolledStudents[l].getScores().length - 1) > enrolledStudents[l - 1].getAverage(0,
+                                (enrolledStudents[l].getScores().length - 1))) {
                     // best.getAverage(0, (enrolledStudents[l].getScores().length))) {
                     best = "" + enrolledStudents[l].getName();
                 }
@@ -81,7 +81,6 @@ public class Course {
         }
         return best;
     }
-
 
     public double calculateTestAverage(int testNum) {
         int total = 0;
@@ -96,11 +95,50 @@ public class Course {
 
     }
 
+    public boolean isFull() {
+        for (int n = 0; n < enrolledStudents.length; n++) {
+            if (enrolledStudents[n] == null) {
+                return false;
+            }
+        }
+        return true;
+    }
 
+    public void enrollStudent(StudentRecord student) {
+        for (int g = 0; g < enrolledStudents.length; g++) {
+            if (enrolledStudents[g] == null) {
+                enrolledStudents[g] = student;
+                return;
+            }
+        }
+    }
 
+    public boolean dropStudent(StudentRecord student) {
+        for (int g = 0; g < enrolledStudents.length; g++) {
+            if (enrolledStudents[g] == student) {
+                enrolledStudents[g] = null;
+                return true;
+            }
+        }
+        return false;
+    }
 
+    public int countEnrolledStudents() {
+        int num = 0;
+        for (int g = 0; g < enrolledStudents.length; g++) {
+            if (enrolledStudents[g] != null) {
+                num += 1;
+            }
+        }
+        return num;
+    }
 
-
-
+    public void increaseClassSizeBy(int sizeIncrease) {
+        StudentRecord[] newArray = new StudentRecord[enrolledStudents.length + sizeIncrease];
+        for (int g = 0; g < enrolledStudents.length; g++) {
+            newArray[g] = enrolledStudents[g];
+        }
+        enrolledStudents = newArray;
+    }
 
 }

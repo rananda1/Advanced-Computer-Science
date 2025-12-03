@@ -10,7 +10,7 @@ public class CourseTester {
         StudentRecord[] arrayRecords = {rose, rose2};
         // // Course compsci = new Course("Computer Science", StudentRecord[]);
         // //Course compsci = new Course("Computer Science", rose);
-        // Course compsci = new Course("Computer Science", arrayRecords[]);
+        //Course compsci = new Course("Computer Science", arrayRecords[]);
 
 
         System.out.println("\n" + rose.getAverage(0, 3) + "\n");
@@ -24,6 +24,24 @@ public class CourseTester {
         Course compsci = new Course("Computer Science", arrayRecords);
 
         System.out.println("\nTesting course: " + compsci.toString());
+
+        System.out.println(compsci.isFull());
+
+        compsci.enrollStudent(rose2);
+
+        System.out.println(compsci.dropStudent(rose2));
+
+        System.out.println(compsci.countEnrolledStudents());
+
+        Course course = new Course("compsci2", 5);
+
+        course.increaseClassSizeBy(3);
+
+        //Course compsci2 = new Course("compsci2", 5);
+
+
+
+
 
 
 
