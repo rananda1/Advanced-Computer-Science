@@ -2,6 +2,7 @@ public class StudentRecord {
     // instance variables
     private String name;
     private int[] scores;
+    public StudentRecord[] rose2;
 
     public String getName() {
         return name;
@@ -61,7 +62,7 @@ public class StudentRecord {
 
     public int getTestScore(int testNumber) {
         if (testNumber < 0 || testNumber > scores.length - 1) {
-            return 0;
+            return -1;
         } else {
             return scores[testNumber];
         }
@@ -75,7 +76,7 @@ public class StudentRecord {
         
         
         
-        //
+    //
 
     /*
      * Determines if each successive value in scores is greater
@@ -118,9 +119,10 @@ public class StudentRecord {
     public double getFinalAverage() {
         
         if (!hasImproved()) {
-            return getAverage(0, scores.length);
+            return getAverage(0, scores.length - 1);
         } else {
-            return getAverage(scores.length / 2, scores.length);
+            return getAverage(scores.length / 2, scores.length - 1);    
+            // (scores.length - 1) / 2, (scores.length - 1));
         }
         
         //return 0.0;
@@ -139,7 +141,7 @@ public class StudentRecord {
             scoresString = "[" + scoresString + "]";
         }
 
-        return name + "'s scores: " + scores;
+        return name + "'s scores: " + scoresString;
     }
 
 

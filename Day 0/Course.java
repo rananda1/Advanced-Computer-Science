@@ -58,21 +58,24 @@ public class Course {
 
 
     public String toString() {
-        String finalString = "== Computer Science ==";
-        for (int o = 1; o < enrolledStudents.length; o++) {
-            finalString = finalString + "\n" + o + ".) " + enrolledStudents[o].toString();
+        String finalString = "== " + courseName + " ==";
+        for (int o = 0; o < enrolledStudents.length; o++) {
+            finalString = finalString + "\n" + (o + 1) + ".) " + enrolledStudents[o].toString();
         }
-        return finalString;
+        return finalString + "\n";
     }
 
 
     public String findBestStudent() {
-        String best = "";
+        String best = ""; // + enrolledStudents[0];
         //int bestNum = 0;
-        for (int l = 0; l < enrolledStudents.length; l++) {
+        for (int l = 1; l < enrolledStudents.length; l++) {
             if (enrolledStudents[l] != null) {
-                if (enrolledStudents[l].getAverage(0, enrolledStudents[l].getScores().length) > best.getAverage(0, (enrolledStudents[l].getScores().length))) {
-                    best = "" + enrolledStudents[l];
+                if (enrolledStudents[l].getAverage(0, enrolledStudents[l].getScores().length - 1) 
+                    > enrolledStudents[l - 1].getAverage(0, 
+                    (enrolledStudents[l].getScores().length - 1))) {    
+                    // best.getAverage(0, (enrolledStudents[l].getScores().length))) {
+                    best = "" + enrolledStudents[l].getName();
                 }
             }
         }
