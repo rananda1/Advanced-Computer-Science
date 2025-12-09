@@ -141,4 +141,8 @@ public class Course {
         enrolledStudents = newArray;
     }
 
+    // public boolean equals(Course other) {
+    // if
+    // }
+
 }
