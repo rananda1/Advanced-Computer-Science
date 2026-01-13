@@ -27,11 +27,55 @@ public class Unit3ExercisesTester {
         System.out.println("Expected cba: " + Unit3Exercises.reverseString(testString));
 
         int[] nums = { 1, 2, 3, 4, 5, 6 };
+        int[] nums2 = null;
+        int[] nums3 = { 3, 2, 5, 6, 1, 4 };
 
         System.out.println(Unit3Exercises.sumEvenNumbers(nums));
 
-        System.out.println(Unit3Exercises.reverseString("racecar"));
+        System.out.println(Unit3Exercises.reverseString("race"));
         System.out.println(Unit3Exercises.isPalindrome("racecar"));
+
+        System.out.println(Unit3Exercises.findLongestWord("word words"));
+
+        // part 2
+
+        System.out.println("part 2\n\n");
+
+        System.out.println(Unit3Exercises.calculateSumOfSquares(nums));
+
+        System.out.println(Unit3Exercises.getNthFibonacci(1));
+
+        System.out.println(Unit3Exercises.sortArrayDescending(nums3));
+
+        System.out.println(Unit3Exercises.findLongestWord("word words"));
+
+        System.out.println(Unit3Exercises.calculateInterest(100.0, 10, 1));
+
+        // part 3
+
+        System.out.println("\npart 3\n\n");
+
+        try {
+            System.out.println(Unit3Exercises.parsePositiveInteger("-123"));
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            System.out.println("The method threw an intentional exception because the number was negative or zero");
+        }
+
+        try {
+            System.out.println(Unit3Exercises.getArrayElement(letters, 10));
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            System.out.println("The method threw an intentional exception because the index was out of bounds");
+        }
+
+        // calculate square root
+
+        try {
+            System.out.println(Unit3Exercises.sumArrayElements(nums2));
+        } catch (Exception e) {
+            System.out.println("The array cannot be null");
+        }
 
     }
 
