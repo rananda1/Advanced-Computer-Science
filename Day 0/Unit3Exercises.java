@@ -190,9 +190,14 @@ public class Unit3Exercises {
 
         if (number <= 0) {
             throw new NumberFormatException("Number cannot be negative or zero");
+            // return 1;
         }
-
-        return number; // Method should return 1 if it's negative
+        if (number < 0) {
+            return 1;
+        } else {
+            return number;
+        }
+        // return number; // Method should return 1 if it's negative
 
     }
 
@@ -223,6 +228,10 @@ public class Unit3Exercises {
     }
 
     public static double calculatePower(double base, int exponent) {
+
+        if (Math.pow(base, exponent) < 0 || exponent < 0) {
+            throw new IllegalArgumentException("number cannot be negative");
+        }
 
         return Math.pow(base, exponent);
 

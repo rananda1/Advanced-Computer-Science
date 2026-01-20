@@ -69,12 +69,25 @@ public class Unit3ExercisesTester {
             System.out.println("The method threw an intentional exception because the index was out of bounds");
         }
 
-        // calculate square root
+        try {
+            System.out.println(Unit3Exercises.calculateSquareRoot(-3));
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            System.out.println("The method threw an intentional exception because the number was negative");
+        }
 
         try {
             System.out.println(Unit3Exercises.sumArrayElements(nums2));
         } catch (Exception e) {
+            System.out.println(e.toString());
             System.out.println("The array cannot be null");
+        }
+
+        try {
+            System.out.println(Unit3Exercises.calculatePower(10, 2));
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            System.out.println("The official error is Double.NaN, because no real number can be returned");
         }
 
     }
