@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+// import java.util.ArrayList;
 
 public class Unit4Exercises {
 
@@ -6,9 +6,10 @@ public class Unit4Exercises {
     public static boolean matchingEndSequences(int[] nums, int n) {
         // to-do: implement the method
         int num = 0;
-        for (int o = 0; 0 < n; o++) {
-            if (nums[o] == nums[nums.length - o - 1])
+        for (int o = 0; o < n; o++) {
+            if (nums[o] == nums[nums.length - n + o]) {
                 num += 1;
+            }
         }
         if (num == n) {
             return true;
@@ -23,7 +24,8 @@ public class Unit4Exercises {
         // to-do: implement the method
         int num = 0;
         for (int i = 0; i < nums.length; i++) {
-            if (i > 0 && i < nums.length - 1 && nums[i - 1] == nums[i] - 2 && nums[i + 1] == nums[i] + 2) {
+            if (i > 0 && i < nums.length - 1 && nums[i - 1] == nums[i] - 2
+                    && nums[i + 1] == nums[i] + 2) {
                 num = 3;
             }
         }
@@ -39,12 +41,28 @@ public class Unit4Exercises {
     // Method 3: generateNumberSequence
     public static int[] generateNumberSequence(int start, int end) {
         // to-do: implement the method
+        int num = -1;
         int[] array1 = new int[end - start];
-        for (int h = 0; h < end - start; h++) {
-            for (int j = start; j < end; j++) {
-                array1[h] = j;
-            }
+        // for (int h = 0; h < end - start; h++) {
+        for (int j = start; j < end; j++) {
+            num += 1;
+            array1[num] = j;
         }
+        // }
+        // return array1;
+
+        // String arrayString = "";
+        String array2 = "";
+        for (int i = 0; i < array1.length; i++) {
+            array2 += ", " + array1[i];
+        }
+        if (array2.length() > 2) {
+            array2 = "[" + array2.substring(2) + "]";
+        } else {
+            array2 = "[" + array2 + "]";
+        }
+        System.out.println(array2);
+
         return array1;
 
     }
@@ -54,20 +72,40 @@ public class Unit4Exercises {
         // to-do: implement the method
 
         String[] array1 = new String[end - start];
+        int num = -1;
         int[] array2 = new int[end - start];
-        for (int h = 0; h < end - start; h++) {
-            for (int j = start; j < end; j++) {
-                array2[h] = j;
-            }
-            if (array2[h] % 3 == 0) {
-                array1[h] = "Fizz";
-            } else if (array2[h] % 5 == 0) {
-                array1[h] = "Buzz";
+        for (int h = start; h < end; h++) {
+            num += 1;
+            array2[num] = h;
+            if (array2[num] % 3 == 0 && array2[num] % 5 == 0) {
+                array1[num] = "FizzBuzz";
+            } else if (array2[num] % 3 == 0) {
+                array1[num] = "Fizz";
+            } else if (array2[num] % 5 == 0) {
+                array1[num] = "Buzz";
             } else {
-                array1[h] = "" + array2[h];
+                array1[num] = "" + h;
             }
-
         }
+        // if (array2[h] % 3 == 0) {
+        // array1[h] = "Fizz";
+        // } else if (array2[h] % 5 == 0) {
+        // array1[h] = "Buzz";
+        // } else {
+        // array1[h] = "" + array2[h];
+        // }
+
+        String arrayString = "";
+        for (int i = 0; i < array1.length; i++) {
+            arrayString += ", " + array1[i];
+        }
+        if (arrayString.length() > 2) {
+            arrayString = "[" + arrayString.substring(2) + "]";
+        } else {
+            arrayString = "[" + arrayString + "]";
+        }
+
+        System.out.println(arrayString);
 
         return array1;
     }
@@ -76,50 +114,67 @@ public class Unit4Exercises {
     public static int[] moveEvenBeforeOdd(int[] nums) {
         // to-do: implement the method
 
-        int oddNum = 0;
+        int num = -1;
         int evenNum = 0;
         int[] array1 = new int[nums.length];
-        for (int i = 0; i < 0; i++) {
+        for (int i = 0; i < nums.length; i++) {
+            // num += 1;
             if (nums[i] % 2 == 0) {
-                array1[i] = nums[i];
-            } else {
-                oddNum +=1;
+                num += 1;
+                array1[num] = nums[i];
+                evenNum += 1;
+            }
+        }
+        int num2 = evenNum - 1;
+        for (int e = 0; e < nums.length; e++) {
+            // num2 += 1;
+            if (nums[e] % 2 != 0) {
+                num2 += 1;
+                array1[num2] = nums[e];
             }
         }
 
-        for (int r = 0; r < nums.length; r++) {
-            if ()
+        String arrayString = "";
+        for (int i = 0; i < array1.length; i++) {
+            arrayString += ", " + array1[i];
+        }
+        if (arrayString.length() > 2) {
+            arrayString = "[" + arrayString.substring(2) + "]";
+        } else {
+            arrayString = "[" + arrayString + "]";
         }
 
-        
-        return new int[0];
+        System.out.println(arrayString);
+
+        return array1;
     }
 
     // ArrayList Methods
 
-    // Method 1: noNegatives
-    public static ArrayList<Integer> noNegatives(ArrayList<Integer> nums) {
-        // to-do: implement the method
-        return new ArrayList<>();
+    // // Method 1: noNegatives
+    // public static ArrayList<Integer> noNegatives(ArrayList<Integer> nums) {
+    // // to-do: implement the method
+    // return new ArrayList<>();
 
-    }
+    // }
 
-    // Method 2: excludeTeenNumbers
-    public static ArrayList<Integer> excludeTeenNumbers(ArrayList<Integer> nums) {
-        // to-do: implement the method
-        return new ArrayList<>();
-    }
+    // // Method 2: excludeTeenNumbers
+    // public static ArrayList<Integer> excludeTeenNumbers(ArrayList<Integer> nums)
+    // {
+    // // to-do: implement the method
+    // return new ArrayList<>();
+    // }
 
-    // Method 3: appendY
-    public static ArrayList<String> appendY(ArrayList<String> strs) {
-        // to-do: implement the method
-        return new ArrayList<>();
-    }
+    // // Method 3: appendY
+    // public static ArrayList<String> appendY(ArrayList<String> strs) {
+    // // to-do: implement the method
+    // return new ArrayList<>();
+    // }
 
-    // Method 4: squarePlus10
-    public static ArrayList<Integer> squarePlus10(ArrayList<Integer> nums) {
-        // to-do: implement the method
-        return new ArrayList<>();
-    }
+    // // Method 4: squarePlus10
+    // public static ArrayList<Integer> squarePlus10(ArrayList<Integer> nums) {
+    // // to-do: implement the method
+    // return new ArrayList<>();
+    // }
 
 }
