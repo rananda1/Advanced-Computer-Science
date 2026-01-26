@@ -11,6 +11,9 @@ public class MatrixFun {
     }
 
     public MatrixFun(int numberOfRows, int numberOfCols) {
+        if (numberOfCols < 0 || numberOfRows < 0) {
+            throw new IllegalArgumentException("Numbers cannot be negative.");
+        }
         matrix = new int[numberOfRows][numberOfCols];
         for (int r = 0; r < matrix.length; r++) {
             for (int c = 0; c < matrix[r].length; c++) {
@@ -76,7 +79,9 @@ public class MatrixFun {
     }
 
     public void swapRow(int rowA, int rowB) {
-        // nt[][] same = this.matrix;
+        if (rowA < 0 || rowB < 0 || rowA > matrix.length - 1 || rowB > matrix.length - 1) {
+            throw new IllegalArgumentException("Must be valid rows.");
+        }
         int[] same = matrix[rowA];
         matrix[rowA] = matrix[rowB];
         matrix[rowB] = same;

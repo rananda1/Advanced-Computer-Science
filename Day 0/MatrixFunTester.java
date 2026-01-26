@@ -22,7 +22,13 @@ public class MatrixFunTester {
 
         System.out.println(matrix1.toString());
 
-        // System.out.println(matrix.equals(mat2));
+        System.out.println(matrix1.equals(mat2));
+
+        try {
+            MatrixFun matrix2 = new MatrixFun(-5, -2);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
 
     }
 
