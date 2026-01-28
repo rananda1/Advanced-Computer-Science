@@ -22,6 +22,15 @@ public class SkyView {
         // view[r / numberOfRows][c] = scanned[r];
         // }
         // }
+        if (scanned == null) {
+            throw new NullPointerException("Array cannot be null.");
+        }
+        if (scanned.length != numberOfCols * numberOfRows) {
+            throw new IllegalArgumentException("Array must be longer.");
+        }
+        if (numberOfCols <= 0 || numberOfRows < 0) {
+            throw new IllegalArgumentException("Matrix dimensions must be positive.");
+        }
 
         view = new double[numberOfRows][numberOfCols];
         int num = 0;
@@ -44,7 +53,7 @@ public class SkyView {
 
     public String toString() {
         String matrixString = "";
-        matrixString += "\n";
+        // matrixString += "\n";
         for (int r = 0; r < view.length; r++) {
             for (int c = 0; c < view[r].length; c++) {
                 matrixString += view[r][c] + " ";
@@ -63,7 +72,7 @@ public class SkyView {
     }
 
     public double getAverage(int startRow, int endRow, int startCol, int endCol) {
-        int total = 0;
+        double total = 0;
         int num = 0;
         for (int r = startRow; r <= endRow; r++) {
             for (int c = startCol; c <= endCol; c++) {
