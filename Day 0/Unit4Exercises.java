@@ -1,4 +1,4 @@
-// import java.util.ArrayList;
+import java.util.ArrayList;
 
 public class Unit4Exercises {
 
@@ -151,30 +151,60 @@ public class Unit4Exercises {
 
     // ArrayList Methods
 
-    // // Method 1: noNegatives
-    // public static ArrayList<Integer> noNegatives(ArrayList<Integer> nums) {
-    // // to-do: implement the method
-    // return new ArrayList<>();
+    // Method 1: noNegatives
+    public static ArrayList<Integer> noNegatives(ArrayList<Integer> nums) {
+        // to-do: implement the method
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums.get(i) < 0) {
+                nums.remove(i);
+                i--;
+            }
+        }
+        return nums;
+        // return new ArrayList<>();
 
-    // }
+    }
 
-    // // Method 2: excludeTeenNumbers
-    // public static ArrayList<Integer> excludeTeenNumbers(ArrayList<Integer> nums)
-    // {
-    // // to-do: implement the method
-    // return new ArrayList<>();
-    // }
+    // Method 2: excludeTeenNumbers
+    public static ArrayList<Integer> excludeTeenNumbers(ArrayList<Integer> nums) {
+        // to-do: implement the method
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums.get(i) < 20 && nums.get(i) > 12) {
+                nums.remove(i);
+                i--;
+            }
+        }
+        return nums;
+        // return new ArrayList<>();
+    }
 
-    // // Method 3: appendY
-    // public static ArrayList<String> appendY(ArrayList<String> strs) {
-    // // to-do: implement the method
-    // return new ArrayList<>();
-    // }
+    // Method 3: appendY
+    public static ArrayList<String> appendY(ArrayList<String> strs) {
+        // to-do: implement the method
+        for (int i = 0; i < strs.size(); i++) {
+            if (strs.get(i).charAt(strs.get(i).length() - 1) == 'y') {
+                strs.remove(i);
+                i--;
+            } else {
+                strs.set(i, strs.get(i) + "y");
+            }
+        }
+        return strs;
+        // return new ArrayList<>();
+    }
 
-    // // Method 4: squarePlus10
-    // public static ArrayList<Integer> squarePlus10(ArrayList<Integer> nums) {
-    // // to-do: implement the method
-    // return new ArrayList<>();
-    // }
+    // Method 4: squarePlus10
+    public static ArrayList<Integer> squarePlus10(ArrayList<Integer> nums) {
+        // to-do: implement the method
+        for (int i = 0; i < nums.size(); i++) {
+            nums.set(i, (nums.get(i) * nums.get(i)) + 10);
+            if (nums.get(i) % 10 == 5 || nums.get(i) % 10 == 6) {
+                nums.remove(i);
+                i--;
+            }
+        }
+        return nums;
+        // return new ArrayList<>();
+    }
 
 }
