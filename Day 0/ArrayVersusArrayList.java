@@ -26,6 +26,20 @@ public class ArrayVersusArrayList {
     // other elements to the right.
     public static void lastComesFirst(String[] arr) {
         // to-do: implement method
+        if (arr != null && arr.length != 0) {
+            String[] example = new String[arr.length];
+            for (int i = 0; i < example.length; i++) {
+                example[i] = arr[i];
+            }
+            arr[0] = arr[arr.length - 1];
+            for (int i = 0; i < arr.length - 1; i++) { // length - 1
+                arr[i + 1] = example[i];
+            }
+        } else if (arr == null) {
+            throw new IllegalArgumentException("Cannot be null.");
+        } else {
+            return;
+        }
 
     }
 
@@ -34,6 +48,20 @@ public class ArrayVersusArrayList {
     // other elements to the right.
     public static void lastComesFirst(ArrayList<String> arrList) {
         // to-do: implement method
+        if (arrList != null && arrList.size() != 0) {
+            String[] example = new String[arrList.size()];
+            for (int i = 0; i < example.length; i++) {
+                example[i] = arrList.get(i);
+            }
+            arrList.set(0, arrList.get(arrList.size() - 1));
+            for (int i = 0; i < arrList.size() - 1; i++) {
+                arrList.set(i + 1, example[i]);
+            }
+        } else if (arrList == null) {
+            throw new IllegalArgumentException("Cannot be null.");
+        } else {
+            return;
+        }
 
     }
 
@@ -42,6 +70,18 @@ public class ArrayVersusArrayList {
     // other elements to the left.
     public static void firstComesLast(String[] arr) {
         // to-do: implement method
+        if (arr != null && arr.length != 0) {
+            String[] example = new String[arr.length];
+            for (int i = 0; i < example.length; i++) {
+                example[i] = arr[i];
+            }
+            arr[arr.length - 1] = arr[0];
+            for (int i = arr.length - 1; i > 0; i--) {
+                arr[i - 1] = example[i];
+            }
+        } else {
+            throw new IllegalArgumentException("Cannot be null.");
+        }
 
     }
 
@@ -50,6 +90,18 @@ public class ArrayVersusArrayList {
     // other elements to the left.
     public static void firstComesLast(ArrayList<String> arrList) {
         // to-do: implement method
+        if (arrList != null && arrList.size() != 0) {
+            String[] example = new String[arrList.size()];
+            for (int i = 0; i < example.length; i++) {
+                example[i] = arrList.get(i);
+            }
+            arrList.set(arrList.size() - 1, arrList.get(0));
+            for (int i = arrList.size() - 1; i > 0; i--) {
+                arrList.set(i - 1, example[i]);
+            }
+        } else {
+            throw new IllegalArgumentException("Cannot be null.");
+        }
 
     }
 
