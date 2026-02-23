@@ -1,14 +1,33 @@
 public class Square extends Rectangle {
 
-    public Square(double sideLength) {
-        super(sideLength, sideLength);
+    public Square(int xCoord, int yCoord, int side) {
+        super(xCoord, yCoord, side, side);
+    }
+
+    public Square(int side) {
+        this(0, 0, side);
     }
 
     public Square() {
-        this(4);
+        super(4, 4);
     }
 
     public String toString() {
-        return super.toString() + "/nIt is also a square.";
+        return super.toString() + " This shape is also a square.";
     }
 }
+
+// public class Square extends Rectangle {
+
+// public Square(double sideLength) {
+// super(sideLength, sideLength);
+// }
+
+// public Square() {
+// this(4);
+// }
+
+// public String toString() {
+// return super.toString() + "/nIt is also a square.";
+// }
+// }
