@@ -1,0 +1,86 @@
+public class Contact implements Comparable {
+
+    private String firstName;
+    private String lastName;
+    private String telephoneNumber;
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getTelephoneNumber() {
+        return telephoneNumber;
+    }
+
+    public void setTelephoneNumber(String telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
+    }
+
+    public Contact(String firstName, String lastName, String telephoneNumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.telephoneNumber = telephoneNumber;
+    }
+
+    public int compareToFirst(Object other) {
+        Contact contact = (Contact) other;
+        if (getFirstName().compareTo(contact.getFirstName()) != 0) {
+            return getFirstName().compareTo(contact.getFirstName());
+        }
+        if (getLastName().compareTo(contact.getLastName()) != 0) {
+            return getLastName().compareTo(contact.getLastName());
+        }
+        if (getTelephoneNumber().compareTo(contact.getTelephoneNumber()) != 0) {
+            return getTelephoneNumber().compareTo(contact.getTelephoneNumber());
+        }
+        return 0;
+    }
+
+    public int compareToLast(Object other) {
+        Contact contact = (Contact) other;
+        if (getLastName().compareTo(contact.getLastName()) != 0) {
+            return getLastName().compareTo(contact.getLastName());
+        }
+        if (getFirstName().compareTo(contact.getFirstName()) != 0) {
+            return getFirstName().compareTo(contact.getFirstName());
+        }
+        if (getTelephoneNumber().compareTo(contact.getTelephoneNumber()) != 0) {
+            return getTelephoneNumber().compareTo(contact.getTelephoneNumber());
+        }
+        return 0;
+    }
+
+    public int compareToNumber(Object other) {
+        Contact contact = (Contact) other;
+        if (getTelephoneNumber().compareTo(contact.getTelephoneNumber()) != 0) {
+            return getTelephoneNumber().compareTo(contact.getTelephoneNumber());
+        }
+        if (getFirstName().compareTo(contact.getFirstName()) != 0) {
+            return getFirstName().compareTo(contact.getFirstName());
+        }
+        if (getLastName().compareTo(contact.getLastName()) != 0) {
+            return getLastName().compareTo(contact.getLastName());
+        }
+        if (getFirstName().compareTo(contact.getFirstName()) != 0) {
+            return getFirstName().compareTo(contact.getFirstName());
+        }
+        return 0;
+    }
+
+    public String toString() {
+        return "Name: " + getFirstName() + " " + getLastName() + "  Telephone Number: " + getTelephoneNumber();
+    }
+
+}
