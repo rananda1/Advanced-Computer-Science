@@ -155,7 +155,7 @@ public class ContactList extends AbstractList {
 
     public boolean has(Contact name) {
         for (int i = 0; i < contactList.size(); i++) {
-            if (contactList.get(i) == name) {
+            if (contactList.get(i).getTelephoneNumber() == name.getTelephoneNumber()) {
                 return true;
             }
         }
@@ -166,14 +166,30 @@ public class ContactList extends AbstractList {
         Collections.sort(contactList);
     }
 
+    public void sortByLastName() {
+        sort();
+    }
+
+    public void sortByTelephoneNumber() {
+
+    }
+
+    public Contact searchContacts(String telephoneNumber) {
+        for (int i = 0; i < contactList.size(); i++) {
+            if (contactList.get(i).getTelephoneNumber().equals(telephoneNumber)) {
+                return contactList.get(i);
+            }
+        }
+        return null;
+    }
+
     // bubble sort class modified for strings
 
-    private int[] nums;
     private boolean sorted;
 
     public void checkSorted() {
-        for (int i = 0; i < nums.length - 1; i++) {
-            if (nums[i] > nums[i + 1]) {
+        for (int i = 0; i < contactList.size() - 1; i++) {
+            if (contactList.get(i).compareToLast(contactList.get(i + 1)) > 0) {
                 sorted = false;
                 return;
             }
@@ -183,7 +199,7 @@ public class ContactList extends AbstractList {
 
     public void sort() {
         while (!sorted) {
-            for (int i = 0; i < nums.length - 1; i++) {
+            for (int i = 0; i < contactList.size() - 1; i++) {
                 swap(i);
             }
             checkSorted();
@@ -191,11 +207,11 @@ public class ContactList extends AbstractList {
         sorted = true;
     }
 
-    public void swap(int index) {
-        if (nums[index] > nums[index + 1]) {
-            int num = nums[index + 1];
-            nums[index + 1] = nums[index];
-            nums[index] = num;
+    public void swap(int i) {
+        if (contactList.get(i).compareTo(contactList.get(i + 1)) > 0) {
+            Contact temp = contactList.get(i + 1);
+            contactList.set(i + 1, contactList.get(i));
+            contactList.set(i, temp);
         }
     }
 }
