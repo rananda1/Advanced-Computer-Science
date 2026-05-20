@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class ToDoList {
 
@@ -32,6 +33,11 @@ public class ToDoList {
             list += "\t- " + assignments.get(i).toString();
         }
 
+        return list;
+    }
+
+    public String sortedList() {
+        Collections.sort(assesments);
     }
 
 }

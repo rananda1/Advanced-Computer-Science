@@ -25,7 +25,7 @@ public class Homework {
         this.description = description;
     }
 
-    public void setForWhatClass(Course forWhatCourse) {
+    public void setForWhatCourse(Course forWhatCourse) {
         this.forWhatCourse = forWhatCourse;
     }
 
@@ -36,7 +36,7 @@ public class Homework {
     }
 
     public String toString() {
-        return "";
+        return "" + getDaysUntilDue() + " " + getForWhatCourse() + " Homework: " + getDescription();
     }
 
 }
