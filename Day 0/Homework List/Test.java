@@ -1,51 +1,29 @@
 
-public class Test {
+public class Test extends Work {
 
-    private int daysUntil;
-    private Course forWhatCourse;
-    // private String description;
-    private double howLongToStudy;
-
-    public double getHowLongToStudy() {
-        return howLongToStudy;
+    public Test(String description, double hoursNeeded, int daysUntil) {
+        super(description, hoursNeeded, daysUntil);
     }
 
-    public void setHowLongToStudy(double howLongToStudy) {
-        this.howLongToStudy = howLongToStudy;
-    }
-
-    public int getDaysUntil() {
-        return daysUntil;
-    }
-
-    // public String getDescription() {
-    // return description;
-    // }
-
-    public Course getForWhatCourse() {
-        return forWhatCourse;
-    }
-
-    public void setDaysUntil(int daysUntil) {
-        this.daysUntil = daysUntil;
-    }
-
-    // public void setDescription(String description) {
-    // this.description = description;
-    // }
-
-    public void setForWhatCourse(Course forWhatCourse) {
-        this.forWhatCourse = forWhatCourse;
-    }
-
-    public Test(Course forWhatCourse, int howLongToStudy, int daysUntil) {
-        this.forWhatCourse = forWhatCourse;
-        this.howLongToStudy = howLongToStudy;
-        this.daysUntil = daysUntil;
+    public void studyForTest(double timeSpent) {
+        if (timeSpent > getHoursNeeded()) {
+            setHoursNeeded(0);
+        } else {
+            setHoursNeeded(getHoursNeeded() - timeSpent);
+        }
     }
 
     public String toString() {
-        return "" + getDaysUntil() + " " + getForWhatCourse() + " Homework: Study for " + howLongToStudy + " hours.";
+        return "" + getDaysUntil() + " days: " + getDescription() + " Test (Study for " + getHoursNeeded() + " hours)";
     }
+
+    // public int compareTo(Object o) {
+    // Test other = (Test) o;
+    // if (getDaysUntil() > other.getDaysUntil()) {
+    // return getDaysUntil();
+    // } else {
+    // return other.getDaysUntil();
+    // }
+    // }
 
 }

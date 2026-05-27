@@ -1,42 +1,35 @@
 
-public class Homework {
+public class Homework extends Work {
+    // implements Comparable
+    // private int daysUntilDue;
+    // // private Course forWhatCourse;
+    // private String description;
 
-    private int daysUntilDue;
-    private Course forWhatCourse;
-    private String description;
+    private boolean complete;
 
-    public int getDaysUntilDue() {
-        return daysUntilDue;
+    public boolean isComplete() {
+        return complete;
     }
 
-    public String getDescription() {
-        return description;
+    public void setComplete(boolean complete) {
+        this.complete = complete;
     }
 
-    public Course getForWhatCourse() {
-        return forWhatCourse;
+    public Homework(String description, double hoursNeeded, int daysUntil) {
+        super(description, hoursNeeded, daysUntil);
+        this.complete = false;
     }
 
-    public void setDaysUntilDue(int daysUntilDue) {
-        this.daysUntilDue = daysUntilDue;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setForWhatCourse(Course forWhatCourse) {
-        this.forWhatCourse = forWhatCourse;
-    }
-
-    public Homework(Course forWhatCourse, String description, int daysUntilDue) {
-        this.forWhatCourse = forWhatCourse;
-        this.description = description;
-        this.daysUntilDue = daysUntilDue;
+    public void doHomework() {
+        setComplete(true);
     }
 
     public String toString() {
-        return "" + getDaysUntilDue() + " " + getForWhatCourse() + " Homework: " + getDescription();
+        if (complete) {
+            return "";
+        } else {
+            return "" + getDaysUntil() + " days: " + getDescription() + " Homework (" + getHoursNeeded() + " hours)";
+        }
     }
 
 }

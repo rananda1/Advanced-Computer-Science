@@ -1,43 +1,42 @@
 import java.util.ArrayList;
-import java.util.Collections;
+// import java.util.Collections;
 
 public class ToDoList {
 
-    private ArrayList<Homework> assignments;
-    private ArrayList<Test> assesments;
+    private ArrayList<Course> courses;
 
-    public ArrayList<Test> getAssesments() {
-        return assesments;
+    public ArrayList<Course> getCourses() {
+        return courses;
     }
 
-    public ArrayList<Homework> getAssignments() {
-        return assignments;
+    public void setCourses(ArrayList<Course> courses) {
+        this.courses = courses;
     }
 
-    public void setAssesments(ArrayList<Test> assesments) {
-        this.assesments = assesments;
+    // public ArrayList<Work> getThingsToDo() {
+    // return thingsToDo;
+    // }
+
+    // public void setToDo(ArrayList<Work> thingsToDo) {
+    // this.thingsToDo = thingsToDo;
+    // }
+
+    public ToDoList(ArrayList<Course> courses) {
+        this.courses = courses;
     }
 
-    public void setAssignments(ArrayList<Homework> assignments) {
-        this.assignments = assignments;
-    }
-
-    public String list() {
-        String list = "";
-        list += "To Do List:\n\n\tTests:";
-        for (int i = 0; i < assesments.size(); i++) {
-            list += "\t- " + assesments.get(i).toString();
+    public String makeCheckList() {
+        String checkList = "To Do List:\n";
+        for (int i = 0; i < courses.size(); i++) {
+            checkList += "\n" + courses.get(i).getName() + "\n" + courses.get(i).sortedList();
         }
-        list += "\n\nHomework:";
-        for (int i = 0; i < assignments.size(); i++) {
-            list += "\t- " + assignments.get(i).toString();
-        }
-
-        return list;
+        return checkList;
     }
 
-    public String sortedList() {
-        Collections.sort(assesments);
-    }
+    // public String sortedList() {
+    // Collections.sort(assesments);
+    // Collections.sort(assignments);
+    // return list();
+    // }
 
 }
